@@ -1,6 +1,5 @@
 # Toto je stránka mojí kapely, takže vím záměry některých funkcí
-# v prvním testu testuji, zda je v titulku slovo Kráľová, protože
-# vím, že to je skutečně záměr
+# v prvním testu testuji, zda je v titulku slovo Kráľová, protože vím, že ho tam fakt chceme :)
 
 import re
 from playwright.sync_api import Page, expect
@@ -23,6 +22,6 @@ def test_link_exists(page: Page):
 # třetí test - zkusíme kliknout na odkaz "o nás" s zkontrolujeme, že se url správně změnila
 def test_link_o_nas(page:Page):
     page.goto(url)
-    nova_url = page.get_by_role("link", name="O nás").click()
-
-    assert nova_url =="https://kralovamusic.sk/o-nas/"
+    nova_url =page.get_by_role("link", name="O nás").click()
+    expect(page).to_have_url("https://kralovamusic.sk/o-nas/")
+    #passed
