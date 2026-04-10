@@ -17,4 +17,12 @@ def test_link_exists(page: Page):
     page.goto(url)
     odkaz=page.locator("a")
     assert odkaz.count() > 0
+    # passed
 
+
+# třetí test - zkusíme kliknout na odkaz "o nás" s zkontrolujeme, že se url správně změnila
+def test_link_o_nas(page:Page):
+    page.goto(url)
+    nova_url = page.get_by_role("link", name="O nás").click()
+
+    assert nova_url =="https://kralovamusic.sk/o-nas/"
