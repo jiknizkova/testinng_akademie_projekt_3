@@ -12,4 +12,9 @@ def test_homepage_title(page: Page):
     expect(page).to_have_title(re.compile("Kráľová", re.IGNORECASE))
     # passed
 
-#
+# druhý test - zkontrolujeme, zda se na stránce nachází nějaký odkaz
+def test_link_exists(page: Page):
+    page.goto(url)
+    odkaz=page.locator("a")
+    assert odkaz.count() > 0
+
