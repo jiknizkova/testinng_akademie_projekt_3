@@ -6,9 +6,10 @@ import re
 from playwright.sync_api import Page, expect
 url = "https://kralovamusic.sk/"
 
-# první test - načtení stránky, očekávané jméno "Kralova" v nadpisu nehledě na velikost písmen
+# první test - načtení stránky, očekávané jméno "Kráľová" v nadpisu nehledě na velikost písmen
 def test_homepage_title(page: Page):
     page.goto(url)
-    expect(page).to_have_title(re.compile("Kralova", re.IGNORCASE))
+    expect(page).to_have_title(re.compile("Kráľová", re.IGNORECASE))
+    # passed
 
-
+#
